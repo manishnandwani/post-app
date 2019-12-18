@@ -1,0 +1,10 @@
+.block{
+
+}
+.center{
+    display: block;
+    text-align: center;
+}
+.mainBody{
+    background-color: bisque
+}

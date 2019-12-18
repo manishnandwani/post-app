@@ -15,6 +15,8 @@
 
         <script src="../controllers/HomeCtrl.js"></script>
 
+        <!-- <link rel="stylesheet" href="../css/font-awesome.min.css"> -->
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     </head>
     <body class="mainBody">
         <div ng-controller="homeCtrl">
@@ -22,13 +24,19 @@
                 <h1>Post App</h1>
             </div>
             <div class="container-fluid block">
-                <input type="text"  name="name">
-                <button type="button" class="btn btn-info">Submit</button>
+                <input type="text" ng-model="post" name="name">
+                <button type="button" ng-disabled="!(post)" ng-click="addPost()" class="btn btn-info">  <span class="spinner-border spinner-border-sm" ng-if="addSpinner"></span> <span ng-if="addSpinner"> loading...</span> <span ng-if="!addSpinner">Add</span></button>
             </div>
             
-            
+            <span class="spinner-border spinner-border-sm" ng-if="spinner"></span> <span ng-if="spinner"> loading...</span>
+            <br>
             <ul>
-                <li ng-repeat="item in list">{{item}}</li>
+                <li ng-repeat="item in list">
+                    <span class="red">{{item.name}}</span>  {{item.createdOn}}  
+                    <button class="btn btn-primary marginSet" ng-click="upVote(item)">  <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        <span class="spinner-border spinner-border-sm" ng-if="upVoteSpinner"></span> <span ng-if="upVoteSpinner"> loading...</span> <span ng-if="!upVoteSpinner"> Upvote </span> <label class="badge badge-warning">{{item.votes}}</label>
+                          </button>  
+                </li>
             </ul>
         </div>
             

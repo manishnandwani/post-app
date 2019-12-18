@@ -6,5 +6,12 @@
     text-align: center;
 }
 .mainBody{
-    background-color: bisque
+    background-color:   blanchedalmond
+}
+.marginSet{
+    margin-left: 10px;
+    margin-right: 10px
+}
+.red{
+    color : red
 }
